@@ -45,7 +45,7 @@ public class ForwardSteps : MonoBehaviour
 
         // true if body is moving forward.
         bool forwards = body.velocity.magnitude > minSpeed;
-        Debug.Log(body.velocity.magnitude);
+        // Debug.Log(body.velocity.magnitude);
         
         if (!playing && forwards) {
             // if we aren't playing, and the keys are down, then play.

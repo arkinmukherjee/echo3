@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: App Intent Profile
   m_EditorClassIdentifier: 
   _sensors: 0100000003000000
-  _gestures: 
+  _gestures: 81000000
   _intervals: 03000000
   _dirty: 1

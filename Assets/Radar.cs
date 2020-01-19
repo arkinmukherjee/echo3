@@ -6,13 +6,11 @@ public class Radar : MonoBehaviour
 {
     AudioSource audioSource;
 
-    bool play;
-
     // Start is called before the first frame update
     void Start()
     {
-        play = true;
-        audioSource = GetComponent<AudioSource>();
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        audioSource = (audioSource[0].clip.name == 'ding' ? audioSource[0] : audioSource[1]);
     }
 
     // Update is called once per frame

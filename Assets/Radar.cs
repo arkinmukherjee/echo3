@@ -48,6 +48,7 @@ public class Radar : MonoBehaviour
     }
 
     private IEnumerator RadarSound(float waitTime) {
+        audioSource.Play();
         yield return new WaitForSeconds(waitTime);
         Debug.LogWarning("About to play a sound!");
         audioSource.Play();

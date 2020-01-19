@@ -10,7 +10,7 @@ public class ForwardSteps : MonoBehaviour
     private bool toggle;
 
     // the minimum speed for which sound is made
-    private float minSpeed = 5.3F;
+    private float minSpeed = 0.01F;
  
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,8 @@ public class ForwardSteps : MonoBehaviour
         body = GetComponent<Rigidbody>();
 
         // initialize the sound.
-        footsteps = GetComponent<AudioSource>();
+        AudioSource[] sources = GetComponents<AudioSource>();
+        footsteps = (sources[0].clip.name == "Footsteps" ? sources[0] : sources[1]);
         playing = false;
         toggle = false;
         footsteps.Play();
@@ -44,6 +45,7 @@ public class ForwardSteps : MonoBehaviour
 
         // true if body is moving forward.
         bool forwards = body.velocity.magnitude > minSpeed;
+        Debug.Log(body.velocity.magnitude);
         
         if (!playing && forwards) {
             // if we aren't playing, and the keys are down, then play.

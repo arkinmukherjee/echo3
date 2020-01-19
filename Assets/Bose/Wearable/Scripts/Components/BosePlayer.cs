@@ -127,7 +127,7 @@ namespace Bose.Wearable
 			transform.eulerAngles = new Vector3(0, rotation.eulerAngles.y, 0);
 			Debug.Log(rotation.eulerAngles.x);
 			if (10 < rotation.eulerAngles.x && rotation.eulerAngles.x < 90) {
-				if(_rigidBody.velocity.magnitude > 10) {
+				if(_rigidBody.velocity.magnitude > 6) {
 						_rigidBody.AddForce(transform.forward*-6);
 					} else {
 						_rigidBody.AddForce(transform.forward*6);

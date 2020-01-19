@@ -111,7 +111,7 @@ public class MazeSounds : MonoBehaviour
 
         string name = collision.collider.name;
 
-        if (name == "Gate") {
+        if (name == "Endzone") {
             gate.Play();
         } else if (name != "Plane") {
             impact.Play();
@@ -124,7 +124,7 @@ public class MazeSounds : MonoBehaviour
 
         string name = collision.collider.name;
 
-        if (name != "Gate" && name != "Plane") {
+        if (name != "Endzone" && name != "Plane") {
             touchingWall = false;
         }
     }

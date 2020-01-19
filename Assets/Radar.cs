@@ -28,9 +28,9 @@ public class Radar : MonoBehaviour
         // But instead we want to collide against everything except layer 8. The ~ operator does this, it inverts a bitmask.
         layerMask = ~layerMask;
 
-        int increment = 45;
+        int increment = 30;
         Vector3 forward = transform.TransformDirection(Vector3.forward);
-        for(int i = 0; i < 360; i+=increment) {
+        for(int i = 0; i <= 390; i+=increment) {
             RaycastHit hit;
             // Does the ray intersect any objects excluding the player layer
             Vector3 direction = Quaternion.AngleAxis(i, Vector3.up) * forward;
@@ -40,7 +40,7 @@ public class Radar : MonoBehaviour
             if (Physics.Raycast(transform.position, direction, out hit, Mathf.Infinity, layerMask))
             {
                 // Debug.LogWarning("hit at " + (direction * hit.distance));
-                StartCoroutine(RadarSoundLocation(transform.position + (direction * hit.distance), i/3f/increment));
+                StartCoroutine(RadarSoundLocation(transform.position + (direction * hit.distance), i/4f/increment));
             }
             else {
                 Debug.DrawRay(transform.position, direction * 1000, Color.white);
